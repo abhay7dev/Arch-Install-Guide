@@ -101,7 +101,7 @@ Root Partition: /dev/nvme0n1p6
 4. `mkdir /mnt/boot/efi` make efi directory
 5. `mount /dev/nvme0n1p1 /mnt/boot/efi` to mount the existing efi directory.
 6. Now comes the fun part. Running `pacstrap` to install everything you need for a basic arch linux install. There are a multitude of packages you need to install depending on your needs. The following is a command to install everything I need.
-7. `pacstrap /mnt linux linux-headers linux-firmware intel-ucode base base-devel git nano rEFInd efibootmgr os-prober xf86-input-vmmouse xf86-video-vmware mesa networkmanager sof-firmware`
+7. `pacstrap /mnt linux linux-headers linux-firmware intel-ucode base base-devel git nano grub efibootmgr os-prober xf86-input-vmmouse xf86-video-vmware mesa networkmanager sof-firmware`
   * `linux`, `linux-headers`, and `linux-firmware` are all packages for linux itself
   * `intel-ucode` is for my processor microcode which is an intel one. Use `amd-ucode` for AMD processors.
   * `base` and `base-devel` are some essential packages

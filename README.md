@@ -123,6 +123,13 @@ Root Partition: /dev/nvme0n1p6
 5. `locale-gen` to generate the locale
 6. `echo "LANG=en_US.UTF-8" >> /etc/locale.conf` Just setting it up. Make sure to change the lang to the line you uncommented
 7. `echo "archpc" >> /etc/hostname` Set your hostname with whatever you would like to name your pc :)
+8. Set hosts. Run `nano /etc/hosts` and add the following lines.
+```
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    archpc.localdomain archpc
+```
+Rename "archpc" with your hostname
 
 ## Ramdisk Config
 Ramdisk is essentially what to do when you boot up your machine. 

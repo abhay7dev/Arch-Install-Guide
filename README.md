@@ -160,11 +160,15 @@ Ramdisk is essentially what to do when you boot up your machine.
 13. Save and quit with `ctrl-o` and `ctrl-x`
 ![image](https://user-images.githubusercontent.com/80220229/166124557-a6ecdf56-98c1-4e6e-a3a1-1340ef2799fd.png)
 
+3. Run `grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB` to install grub (temporarily)
+4. `grub-mkconfig -o /boot/grub/grub.cfg` to make the configuration file
 
 ## Exit the environment and reboot
 1. run `exit` to get back to the arch iso
 2. unmount the partitions with `umount -R /mnt`
 3. Reboot with `reboot`!
+
+## If you used grub and want refind, login and run `refind-install`, you should not have to do any editing and you can safely remove grub
 
 ## Result
 ![image](https://user-images.githubusercontent.com/80220229/166094211-303a10bc-c268-4341-8cd7-da50d04f5036.png)

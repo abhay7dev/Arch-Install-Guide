@@ -16,7 +16,7 @@ DISCLAIMER: THIS IS A PERSONAL GUIDE FOR ME AND FOR MY OWN COMPUTER.
 I am not going to go through this as I am going to be installing arch on a machine with windows already installed but I will have a quick quide below.
 1. Install the Windows 10 Media Creation Tool: https://www.microsoft.com/en-us/software-download/windows10
 2. Create an ISO file for windows on your hard drive
-3. Burn the ISO file to a disc or usb. I suggest using [rufus](https://rufus.ie/en/)
+3. Burn the ISO file to a disc or usb. I suggest using [Balena Etcher](https://github.com/balena-io/etcher/releases). [rufus](https://rufus.ie/en/) also works
 
 ## Setup Windows
 1. Go to the control panel, go to power options, go to `Change what the power buttons do` and **turn off fast startup**

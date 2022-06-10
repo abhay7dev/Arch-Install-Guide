@@ -1,4 +1,4 @@
-# ***THIS IS A WORK IN PROGRESS. I STILL NEED TO UPDATE SOME THINGS***
+# ***THIS IS A WORK IN PROGRESS***
 
 DISCLAIMER: THIS IS A PERSONAL GUIDE FOR ME AND FOR MY OWN COMPUTER.
 
@@ -103,14 +103,14 @@ Root Partition: /dev/nvme0n1p6
 4. `mkdir /mnt/boot/efi` make efi directory
 5. `mount /dev/nvme0n1p1 /mnt/boot/efi` to mount the existing efi directory.
 6. Now comes the fun part. Running `pacstrap` to install everything you need for a basic arch linux install. There are a multitude of packages you need to install depending on your needs. The following is a command to install everything I need.
-7. `pacstrap /mnt linux linux-headers linux-firmware intel-ucode base base-devel git nano grub efibootmgr os-prober xf86-input-vmmouse xf86-video-vmware mesa networkmanager sof-firmware`
+7. `pacstrap /mnt linux linux-headers linux-firmware intel-ucode base base-devel git nano efibootmgr xf86-input-vmmouse xf86-video-vmware mesa networkmanager sof-firmware`
   * `linux`, `linux-headers`, and `linux-firmware` are all packages for linux itself
   * `intel-ucode` is for my processor microcode which is an intel one. Use `amd-ucode` for AMD processors.
   * `base` and `base-devel` are some essential packages
   * `git` is git
   * `nano` is a text editor for the console
-  * `efibootmgr` and `os-prober` are some extra packages for boot
-  * `xf86-input-vmmouse` for the touchpad in vmware. I would use `xf86-input-synaptics` for my actual computer
+  * `efibootmgr`
+  * `xf86-input-vmmouse` for the touchpad in vmware. I would use **`xf86-input-synaptics` or `libinput`** for my actual computer
   * `xf86-video-vmware` as a video driver. I would use `xf86-video-intel` for my computer. https://wiki.archlinux.org/title/Intel_graphics
   * `mesa` for opengl and other graphics things
   * `networkmanager` a network and internet manager for the command line
@@ -124,14 +124,14 @@ Root Partition: /dev/nvme0n1p6
 4. Run `nano /etc/locale.gen` (or vim) and navigate to the commented out line for your locale. In my case, it would be `en_US.UTF-8 UTF-8` then ctrl-o and ctrl-x to save and exit in nano
 5. `locale-gen` to generate the locale
 6. `echo "LANG=en_US.UTF-8" >> /etc/locale.conf` Just setting it up. Make sure to change the lang to the line you uncommented
-7. `echo "archpc" >> /etc/hostname` Set your hostname with whatever you would like to name your pc :)
+7. `echo "arkde" >> /etc/hostname` Set your hostname with whatever you would like to name your pc :)
 8. Set hosts. Run `nano /etc/hosts` and add the following lines.
 ```
 127.0.0.1    localhost
 ::1          localhost
-127.0.1.1    archpc.localdomain archpc
+127.0.1.1    arkde.localdomain arkde
 ```
-Rename "archpc" with your hostname
+Rename "arkde" with your hostname
 
 ## Ramdisk Config
 Ramdisk is essentially what to do when you boot up your machine. 
@@ -162,9 +162,6 @@ Ramdisk is essentially what to do when you boot up your machine.
 13. Save and quit with `ctrl-o` and `ctrl-x`
 ![image](https://user-images.githubusercontent.com/80220229/166124557-a6ecdf56-98c1-4e6e-a3a1-1340ef2799fd.png)
 
-3. Run `grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB` to install grub (temporarily)
-4. `grub-mkconfig -o /boot/grub/grub.cfg` to make the configuration file
-
 ## Exit the environment and reboot
 1. run `exit` to get back to the arch iso
 2. unmount the partitions with `umount -R /mnt`
@@ -175,7 +172,7 @@ Ramdisk is essentially what to do when you boot up your machine.
 ## Result
 ![image](https://user-images.githubusercontent.com/80220229/166094211-303a10bc-c268-4341-8cd7-da50d04f5036.png)
 You should now have a boot menu which looks like this!
-You can choose the windows icon or the second icon to boot windows, but we will be configuring it so that only one appears.
+You can choose the windows icon or the second icon to boot windows
 You can choose linux from the third option and the archiso flashdrive is the fourth option
 
 ## Help! I Screwed up
@@ -227,13 +224,13 @@ Run the above commands
 [Theme]
 Current=breeze
 ```
-4. `pacman -S konsole dolphin`
+4. `sudo pacman -S konsole dolphin`
 5. Run `sudo pacman -S packagekit-qt5 fwupd` for getting app backends for kde discover
 6. `pacman -S ufw` for a firewall which can be managed from KDE's system settings
 7. `yay -S librewolf-bin` to install [librewolf](https://librewolf.net)
-8. `reboot` into plasma!
+8. `sudo pacman -S neofetch`
+9. `reboot` into plasma!
 
 ## Some settings
 * Dark theme. Set screen resolution to 1920x1080.
-* `pacman -S bluez bluez-utils` for bluetooth
 * Wobbly windows and translucency

@@ -217,7 +217,7 @@ Run the above commands
 
 ## Install plasma
 
-1. Run `sudo pacman -S xorg plasma plasma-wayland-session sddm pipewire packagekit-qt5 fwupd`
+1. Run `sudo pacman -S xorg plasma plasma-wayland-session sddm pipewire`
 2. After installation run `systemctl enable sddm.service`
 3. Run `sudo nano /usr/lib/sddm/sddm.conf.d/default.conf` (or vim) and change the theme to "Breeze" so that the result is as follows
 ```
@@ -227,9 +227,10 @@ Current=breeze
 4. `sudo pacman -S konsole dolphin`
 5. Run `sudo pacman -S packagekit-qt5 fwupd` for getting app backends for kde discover
 6. `pacman -S ufw` for a firewall which can be managed from KDE's system settings
-7. `yay -S librewolf-bin` to install [librewolf](https://librewolf.net)
-8. `sudo pacman -S neofetch`
-9. `reboot` into plasma!
+7. `sudo ufw enable` to start the firewall
+8. `yay -S librewolf-bin` to install [librewolf](https://librewolf.net)
+9. `sudo pacman -S neofetch`
+10. `reboot` into plasma!
 
 ## Some settings
 * Dark theme. Set screen resolution to 1920x1080.

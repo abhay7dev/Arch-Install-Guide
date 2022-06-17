@@ -217,7 +217,7 @@ Run the above commands
 
 ## Install plasma
 
-1. Run `sudo pacman -S xorg plasma plasma-wayland-session sddm pipewire packagekit-qt5`
+1. Run `sudo pacman -S xorg plasma plasma-wayland-session sddm pipewire packagekit-qt5 fwupd`
 2. After installation run `systemctl enable sddm.service`
 3. Run `sudo nano /usr/lib/sddm/sddm.conf.d/default.conf` (or vim) and change the theme to "Breeze" so that the result is as follows
 ```

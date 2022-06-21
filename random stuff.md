@@ -136,7 +136,8 @@ Papirus Icons
 * `sudo pacman -S papirus-icon-theme ` and go to System Settings > Appearance > Icons and select papirus-dark
 * Set the application launcher to the arch icon and set "Show buttons for Power and Session"
 
+##### Plymouth??
 
-
-
-
+* https://wiki.archlinux.org/title/Plymouth#Configuration
+* https://www.youtube.com/watch?v=eTk2yG1JFsE
+* https://github.com/adi1090x/plymouth-themes

@@ -81,7 +81,7 @@ if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
 	export MOZ_DBUS_REMOTE=1
 fi
 
-alias neofetch='neofetch | lolcat'
+# alias neofetch='neofetch | lolcat' # Enabling this means neofetch --help returns lolcat help
 
 ```
 
@@ -108,18 +108,27 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rk
 ```
 
-## Firewall
+##### Firewall
 
 ```bash
 sudo pacman -S ufw
 sudo ufw enable
 ```
 
+##### KDE Plasma Settings
 
-
-
-
-
+Application/Plasma Theme:
+* Set Global Theme to Plasma Dark
+* https://github.com/daltonmenezes/aura-theme/tree/main/packages/plasma <-- Then choose aura theme obviously
+* Go to Application Style and choose `Configure GNOME/GTK Application Style` and choose breeze (it will include the aura colors)
+* Workspace Behaviour/Desktop Effects - Translucency & Wobbly Windows. Dim Screen for admin mode and slide back
+Konsole theme
+* Ctrl-Shift-m to hide/show menu bar
+* Right click and hide Main Toolbar/Session toolbar. menu bar + right click to reenable them
+* Settings > Window Color Scheme should be set to default (which should make the title bar in Aura theme)
+* Settings > New Profile
+  * Change name and set as default profile
+  * Appearance > Color scheme and set it to Aura but click on edit and make the transparency 20%
 
 
 

@@ -108,7 +108,12 @@ When = PostTransaction
 Exec = /usr/bin/paccache -rk
 ```
 
+## Firewall
 
+```bash
+sudo pacman -S ufw
+sudo ufw enable
+```
 
 
 

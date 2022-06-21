@@ -34,7 +34,7 @@ yay -S pipes.sh
 ##### Plasma
 
 ```bash
-sudo pacman -S plasma konsole dolphin kwrite krunner firefox sddm fwupd packagekit-qt5 spectacle partitionmanager
+sudo pacman -S plasma konsole dolphin kwrite krunner firefox sddm fwupd packagekit-qt5 spectacle partitionmanager gwenview
 ```
 
 ##### yay

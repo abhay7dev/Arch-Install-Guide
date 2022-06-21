@@ -8,6 +8,9 @@ idk if `sof-firmware` is needed
 
 ^^ Make sure to enable `multilib` in iso first
 
+##### Maybe mkinitcpio stuff?
+* `MODULES=(nvme)` for nvme stuff?
+
 ##### Grub
 
 ```bash

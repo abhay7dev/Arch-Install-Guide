@@ -129,8 +129,9 @@ Konsole theme
 * Settings > New Profile
   * Change name and set as default profile
   * Appearance > Color scheme and set it to Aura but click on edit and make the transparency 20%
-
-
+Papirus Icons
+* `sudo pacman -S papirus-icon-theme ` and go to System Settings > Appearance > Icons and select papirus-dark
+* Set the application launcher to the arch icon and set "Show buttons for Power and Session"
 
 
 

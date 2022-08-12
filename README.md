@@ -241,6 +241,7 @@ Current=breeze
 Smokey Arch Blue Splash Screen for KDE plasma
 Grub/Refind themes
 Plymouth
+Install `pipewire-pulse`
 
 
 

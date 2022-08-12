@@ -235,3 +235,18 @@ Current=breeze
 ## Some settings
 * Dark theme. Set screen resolution to 1920x1080.
 * Wobbly windows and translucency
+
+## Other things and stuff
+
+Smokey Arch Blue Splash Screen for KDE plasma
+Grub/Refind themes
+Plymouth
+
+
+
+
+
+
+
+
+

@@ -1,8 +1,7 @@
-I have decided against having multilib support because 32bit functionality is not highly needed unless i plan on using wine.
+I have decided against having multilib support because 32bit functionality is not highly needed unless i plan on using wine. I also decided to use grub because grub has better looking themes lmao
 
-Minimal 
+### Minimal pacstrap
 ```bash
-
 pacstrap /mnt \
 linux linux-headers linux-firmware \
 base base-devel git nano \
@@ -12,7 +11,22 @@ pacman-contrib reflector \
 networkmanager
 ```
 
-Install grub later
+### Swapfile
+```bash
+# AFTER MAKING /etc/fstab
+# (in arch-chroot)
+fallocate -l 4GB /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+
+nano /etc/fstab
+# ADD:
+/swapfile none swap sw 0 0
+# ctrl-o ctrl-x to save n' exit
+```
+
+### Install grub
 ```bash
 pacman -S grub efibootmgr os-prober
 # Run os-prober to test

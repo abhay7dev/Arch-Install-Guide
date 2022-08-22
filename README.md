@@ -238,5 +238,10 @@ sudo ufw default deny incoming
 sudo ufw enable
 ```
 
+## fstrim (For SSDs)
+```bash
+sudo systemctl enable fstrim.timer
+```
+
 ### Dns-over-https
 [WIP]: [https://wiki.archlinux.org/title/Dnscrypt-proxy](https://wiki.archlinux.org/title/Dnscrypt-proxy) + [https://www.privacyguides.org/dns/](https://www.privacyguides.org/dns/#recommended-providers)

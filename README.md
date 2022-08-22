@@ -152,15 +152,8 @@ makepkg -si
 
 ### Fun Stuff
 ```bash
-sudo pacman -S neofetch cmatrix
+sudo pacman -S neofetch cmatrix btop
 yay -S pipes.sh
-
-# btop (The package in the community repo is broken)
-mkdir btopfiles # Maybe in Downloads
-curl -L https://github.com/aristocratos/btop/releases/download/v1.2.8/btop-x86_64-linux-musl.tbz
-tar -x -j -f "btop-x86_64-linux-musl.tbz" -C btopfiles
-cd btopfiles
-./install.sh
 ```
 
 ### KDE Plasma
@@ -244,3 +237,6 @@ sudo ufw default deny incoming
 
 sudo ufw enable
 ```
+
+### Dns-over-https
+[WIP]: [https://wiki.archlinux.org/title/Dnscrypt-proxy](https://wiki.archlinux.org/title/Dnscrypt-proxy) + [https://www.privacyguides.org/dns/](https://www.privacyguides.org/dns/#recommended-providers)

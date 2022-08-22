@@ -9,7 +9,7 @@
 * [Disable Hibernation](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/disable-and-re-enable-hibernation) (`powercfg.exe /hibernate` as admin in Command Prompt)
 * Decrease size of C: Drive in `Create and Format Hard Disk Partitions` to the amount of empty space you want for your arch installation
 
-#### Other Windows Things
+### Other Windows Things
 * Refer to [this ArchWiki guide for bluetooth after installation](https://wiki.archlinux.org/title/Bluetooth#Dual_boot_pairing)
 * If you would like Windows Hard Disk Encryption refer to [this guide](https://octetz.com/docs/2020/2020-2-16-arch-windows-install/) which will help setup Veracrypt and Grub
 * Intel Rapid Storage Technology (IRST) can be disabled from Intel Optane Memory and Storage Management App (if it cannot be disabled in bios). if IRST was included when the machine was purchased, the app should be preinstalled as well. You should have the option to disable it.
@@ -155,7 +155,7 @@ makepkg -si
 sudo pacman -S neofetch cmatrix
 yay -S pipes.sh
 
-# btop (The unofficial pcakage in the community repo is broken)
+# btop (The package in the community repo is broken)
 mkdir btopfiles # Maybe in Downloads
 curl -L https://github.com/aristocratos/btop/releases/download/v1.2.8/btop-x86_64-linux-musl.tbz
 tar -x -j -f "btop-x86_64-linux-musl.tbz" -C btopfiles

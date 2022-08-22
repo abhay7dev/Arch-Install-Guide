@@ -190,7 +190,7 @@ sudo systemctl enable clamav-freshclam.service
 sudo systemctl enable clamav-daemon.service
 ```
 
-## zsh
+### zsh
 ```bash
 sudo pacman -S zsh zsh-completions
 chsh -s /usr/bin/zsh
@@ -206,7 +206,7 @@ echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.z
 # p10k configure (should be done automatically)
 ```
 
-## Config for browsers
+### Config for browsers
 ```bash
 # .zshrc
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
@@ -217,7 +217,7 @@ fi
 --ozone-platform-hint=auto # Or chrome://flags and edit it there
 ```
 
-## Pacman hook for paccache (pacman-contrib)
+### Pacman hook for paccache (pacman-contrib)
 ```bash
 sudo mkdir /etc/pacman.d/hooks
 sudo nano /etc/pacman.d/hooks/clean_cache.hook
@@ -233,4 +233,14 @@ Target = *
 Description = Cleaning pacman cache...
 When = PostTransaction
 Exec = /usr/bin/paccache -rk
+```
+
+### UFW (Firewall)
+```bash
+sudo pacman -S ufw
+
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+
+sudo ufw enable
 ```

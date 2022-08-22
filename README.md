@@ -162,3 +162,75 @@ tar -x -j -f "btop-x86_64-linux-musl.tbz" -C btopfiles
 cd btopfiles
 ./install.sh
 ```
+
+### KDE Plasma
+```bash
+sudo pacman -S plasma plasma-wayland-session konsole dolphin ark kwrite kcalc krunner spectacle partitionmanager gwenview sddm
+sudo pacman -S fwupd packagekit-qt5
+sudo systemctl enable sddm.service
+```
+
+### Web Browsers
+```bash
+yay -S firefox-kde-opensuse brave-bin # Use https://ffprofile.com/ to harden firefox as needed
+# Don't forget to isntall kde integration for brave as well
+```
+
+### Bluetooth
+```bash
+sudo pacman -S bluez bluez-utils bluedevil
+sudo systemctl enable bluetooth.service
+```
+
+### ClamAntiVirus
+```bash
+sudo pacman -S clamav
+sudo freshclam
+sudo systemctl enable clamav-freshclam.service
+sudo systemctl enable clamav-daemon.service
+```
+
+## zsh
+```bash
+sudo pacman -S zsh zsh-completions
+chsh -s /usr/bin/zsh
+# sudo reboot
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # Install ohmyzsh
+
+yay -S nerd-fonts-fira-code # Set this as the monospace font in System Settings
+
+yay -S zsh-theme-powerlevel10k-git
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+
+# p10k configure (should be done automatically)
+```
+
+## Config for browsers
+```bash
+# .zshrc
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+	export MOZ_ENABLE_WAYLAND=1
+	export MOZ_DBUS_REMOTE=1
+fi
+# .config/chromium-flags.conf
+--ozone-platform-hint=auto # Or chrome://flags and edit it there
+```
+
+## Pacman hook for paccache (pacman-contrib)
+```bash
+sudo mkdir /etc/pacman.d/hooks
+sudo nano /etc/pacman.d/hooks/clean_cache.hook
+# Add following
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Cleaning pacman cache...
+When = PostTransaction
+Exec = /usr/bin/paccache -rk
+```

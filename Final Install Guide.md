@@ -1,5 +1,12 @@
 # Final Guide
 
+## Windows setup
+* Disable Secure Boot
+* Go to `regedit.msc` and go to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`. Add a new QWORD called `RealTimeIsUniversal` and give it a value of `1`. You do not have to touch the Settings App for time and date
+* [Disable Fast Startup](https://www.lifewire.com/disable-fast-startup-in-windows-10-5094422)
+* [Disable Hibernation](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/disable-and-re-enable-hibernation) (`powercfg.exe /hibernate` as admin in Command Prompt)
+* Refer to [this ArchWiki guide for bluetooth after installation](https://wiki.archlinux.org/title/Bluetooth#Dual_boot_pairing)
+
 ## Connect to internet, network time synchronization, setup ssh
 ```bash
 iwctl
@@ -47,7 +54,7 @@ mount /dev/nvme0n1p5 /mnt/boot # Mount boot partition
 mkdir /mnt/boot/efi
 mount /dev/nvme0n1p1 /mnt/boot/efi # Mount EFI partition
 
-pacstrap /mnt linux linux-headers linux-firmware base base-devel git nano mesa intel-media-driver libinput pipewire wireplumber pacman-contrib reflector networkmanager
+pacstrap /mnt linux linux-headers linux-firmware base base-devel git nano mesa intel-media-driver libinput pipewire wireplumber pacman-contrib reflector networkmanager curl
 
 genfstab genfstab -U /mnt >> /mnt/etc/fstab
 ```
@@ -120,6 +127,11 @@ umount -R /mnt
 reboot
 ```
 
-
+## Install yay
+```bash
+git clone https://aur.archlinux.org/yay-bin.git # Change yay-bin to yay if you want to compile yourself
+cd yay-bin
+makepkg -si
+```
 
 

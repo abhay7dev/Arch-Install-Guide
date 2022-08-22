@@ -5,7 +5,12 @@
 * Go to `regedit.msc` and go to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`. Add a new QWORD called `RealTimeIsUniversal` and give it a value of `1`. You do not have to touch the Settings App for time and date
 * [Disable Fast Startup](https://www.lifewire.com/disable-fast-startup-in-windows-10-5094422)
 * [Disable Hibernation](https://docs.microsoft.com/en-us/troubleshoot/windows-client/deployment/disable-and-re-enable-hibernation) (`powercfg.exe /hibernate` as admin in Command Prompt)
+* Decrease size of C: Drive in `Create and Format Hard Disk Partitions` to the amount of empty space you want for your arch installation
+
+### Other Windows Things
 * Refer to [this ArchWiki guide for bluetooth after installation](https://wiki.archlinux.org/title/Bluetooth#Dual_boot_pairing)
+* If you would like Windows Hard Disk Encryption refer to [this guide](https://octetz.com/docs/2020/2020-2-16-arch-windows-install/) which will help setup Veracrypt and Grub
+* Intel Rapid Storage Technology (IRST) can be disabled from Intel Optane Memory and Storage Management App (if it cannot be disabled in bios). if IRST was included when the machine was purchased, the app should be preinstalled as well. You should have the option to disable it.
 
 ## Connect to internet, network time synchronization, setup ssh
 ```bash

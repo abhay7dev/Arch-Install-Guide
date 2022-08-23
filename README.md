@@ -1,4 +1,19 @@
-# Final Guide
+# Arch Linux Install Guide
+
+This is an install guide for my laptop. If you are going to try this guide, make sure to check your hardware, and make any changes necesary.
+**READ THE COMMENTS IN THE CODE BLOCKS**. The contain important information.
+This guide is seperated into two sections, `Inital Install`, and `Post Install`.
+This guide has the following:
+* Dual boot with Windows (tested on 10, should work with 11)
+* UEFI Mode
+* Remote ssh for install if required
+* 2 partitions - Boot, Encrypted Root (LUKS)
+* Optional Swapfile
+* Grub Boot Manager (Check [the Old Guide](https://github.com/EpicGamer007/DualBootWindowsArch/blob/main/Old%20Guide.md#boot-manager-and-networkmanager) for refind boot manager)
+* KDE Plasma and web browsers
+* ClamAV (Antivirus)
+* ZSH + ohmyzsh + powerlevel10k
+* And More
 
 ## Initial Install
 
@@ -134,7 +149,7 @@ umount -R /mnt
 reboot
 ```
 
-## After Installation
+## Post Install
 
 ### Connect to internet with NetworkManager
 ```bash

@@ -131,12 +131,33 @@ EDITOR=nano visudo
 
 ### Grub
 ```bash
-pacman -S grub efibootmgr os-prober
-# Run os-prober and check output
+pacman -S grub efibootmgr
 
 nano /etc/default/grub
+# Find the below line in the file and write as follows
 # GRUB_CMDLINE_LINUX="cryptdevice=UUID={ROOT_UUID_FROM_blkid}:cryptroot root=/dev/mapper/cryptroot"
-# Uncomment line to allow os-prober to run
+
+nano /etc/grub.d/40_custom
+# Make the file as follows below (Not including the # lines at the top and bottom)
+# Get your efi partition's uuid from blkid and replace $EFI_PARTITION_UUID. It is typically in the form of XXXX-XXXX
+##########################
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+if [ "${grub_platform}" == "efi" ]; then
+	menuentry "Windows 10" {
+		insmod part_gpt
+		insmod fat
+		insmod search_fs_uuid
+		insmod chain
+		
+		search --fs-uuid --set=root $EFI_PARTITION_UUID
+		chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+	}
+fi
+##########################
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB 
 grub-mkconfig -o /boot/grub/grub.cfg 
@@ -240,7 +261,7 @@ Target = *
 [Action]
 Description = Cleaning pacman cache...
 When = PostTransaction
-Exec = /usr/bin/paccache -rk
+Exec = /usr/bin/paccache -r
 ```
 
 ### UFW (Firewall)

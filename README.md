@@ -9,7 +9,7 @@ This guide has the following:
 * Remote ssh for install if required
 * 2 partitions - Boot, Encrypted Root (LUKS)
 * Optional Swapfile
-* Grub Boot Manager (Check [the Old Guide](https://github.com/EpicGamer007/DualBootWindowsArch/blob/main/Old%20Guide.md#boot-manager-and-networkmanager) for refind boot manager)
+* Grub Boot Manager (Check [the Old Guide](https://github.com/EpicGamer007/Arch-Install-Guide/blob/main/Old%20Guide.md#boot-manager-and-networkmanager) for refind boot manager)
 * KDE Plasma and web browsers
 * ClamAV (Antivirus)
 * ZSH + ohmyzsh + powerlevel10k

@@ -298,5 +298,7 @@ Go to Settings then go to the settings section for KWin and add your desired eff
 
 ### Run `yay` to update everything
 
+## Auto Clean Cache: https://herbort.me/posts/automatically-cleaning-pacman-and-yay-cache-in-arch-linux/
+
 ### Dns-over-https
 [WIP]: [https://wiki.archlinux.org/title/Dnscrypt-proxy](https://wiki.archlinux.org/title/Dnscrypt-proxy) + [https://www.privacyguides.org/dns/](https://www.privacyguides.org/dns/#recommended-providers)

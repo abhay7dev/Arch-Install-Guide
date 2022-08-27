@@ -76,7 +76,7 @@ mount /dev/nvme0n1p5 /mnt/boot # Mount boot partition
 mkdir /mnt/boot/efi
 mount /dev/nvme0n1p1 /mnt/boot/efi # Mount EFI partition
 
-pacstrap /mnt linux linux-headers linux-firmware base base-devel git nano mesa intel-media-driver libinput pipewire wireplumber pacman-contrib reflector networkmanager curl
+pacstrap /mnt linux linux-headers linux-firmware base base-devel git nano mesa intel-media-driver libinput pipewire wireplumber sof-firmware pacman-contrib reflector networkmanager curl
 
 genfstab genfstab -U /mnt >> /mnt/etc/fstab
 ```
@@ -199,12 +199,6 @@ sudo pacman -S fwupd packagekit-qt5
 sudo systemctl enable sddm.service
 ```
 
-### Web Browsers
-```bash
-yay -S firefox-kde-opensuse brave-bin # Use https://ffprofile.com/ to harden firefox as needed
-# Don't forget to isntall kde integration for brave as well
-```
-
 ### Bluetooth
 ```bash
 sudo pacman -S bluez bluez-utils bluedevil
@@ -235,15 +229,30 @@ echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >> ~/.z
 # p10k configure (should be done automatically)
 ```
 
-### Config for browsers
+### Chaotic aur
 ```bash
-# .zshrc
+pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key FBA220DFC880C036
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+
+# Add the following to the end of /etc/pacman.conf
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+```
+
+### Web Browser
+```bash
+yay -S chaotic-aur/firedragon
+
+# Create a shell script (like `~/browserstartup.sh`) and add this script in the kde plasma settings to Startup and Shutdown in the Autostart section
+
+#!/bin/bash
 if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
 	export MOZ_ENABLE_WAYLAND=1
 	export MOZ_DBUS_REMOTE=1
 fi
-# .config/chromium-flags.conf
---ozone-platform-hint=auto # Or chrome://flags and edit it there
+
+# Make sure to do chmod +x to this file
 ```
 
 ### Pacman hook for paccache (pacman-contrib)
@@ -274,10 +283,20 @@ sudo ufw default deny incoming
 sudo ufw enable
 ```
 
-## fstrim (For SSDs)
+### fstrim (For SSDs)
 ```bash
 sudo systemctl enable fstrim.timer
 ```
+
+### Burn-My-Windows KWin effect: https://github.com/Schneegans/Burn-My-Windows
+```
+Go to Discover and search Burn-My-Windows or one of the supported effects in the above repo
+Go to Settings then go to the settings section for KWin and add your desired effect (Incinerate is the coolest)
+```
+
+### Webcord (Discord client with support for wayland screen sharing): `yay -S webcord-bin` (or `-git` or just `webcord`) See https://github.com/SpacingBat3/WebCord
+
+### Run `yay` to update everything
 
 ### Dns-over-https
 [WIP]: [https://wiki.archlinux.org/title/Dnscrypt-proxy](https://wiki.archlinux.org/title/Dnscrypt-proxy) + [https://www.privacyguides.org/dns/](https://www.privacyguides.org/dns/#recommended-providers)

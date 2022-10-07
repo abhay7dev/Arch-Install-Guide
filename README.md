@@ -307,3 +307,10 @@ sudo pacman -S xdg-desktop-portal xdg-desktop-portal-kde
 
 ### Dns-over-https
 [WIP]: [https://wiki.archlinux.org/title/Dnscrypt-proxy](https://wiki.archlinux.org/title/Dnscrypt-proxy) + [https://www.privacyguides.org/dns/](https://www.privacyguides.org/dns/#recommended-providers)
+
+### one.one.one.one DNS over WARP
+```bash
+yay -S cloudflare-warp-bin
+warp-cli # register, accept tos, enable
+```
+

@@ -3,26 +3,6 @@ Notes for my new install guide:
 
 For old install guide, go to https://github.com/EpicGamer007/Arch-Install-Guide/blob/main/KDE%20Plasma%2BWindows.md
 
-
-# Arch Linux Install Guide
-
-This is an install guide for my laptop. If you are going to try this guide, make sure to check your hardware, and make any changes necesary.
-**READ THE COMMENTS IN THE CODE BLOCKS**. The contain important information.
-This guide is seperated into two sections, `Inital Install`, and `Post Install`.
-This guide has the following:
-* Dual boot with Windows (tested on 10, should work with 11)
-* UEFI Mode
-* Remote ssh for install if required
-* 2 partitions - Boot, Encrypted Root (LUKS)
-* Optional Swapfile
-* Grub Boot Manager (Check [the Old Guide](https://github.com/EpicGamer007/Arch-Install-Guide/blob/main/Old%20Guide.md#boot-manager-and-networkmanager) for refind boot manager)
-* KDE Plasma and web browsers
-* ClamAV (Antivirus)
-* ZSH + ohmyzsh + powerlevel10k
-* And More
-
-## Initial Install
-
 ### Windows setup
 * Disable Secure Boot
 * Go to `regedit.msc` and go to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation`. Add a new QWORD called `RealTimeIsUniversal` and give it a value of `1`. You do not have to touch the Settings App for time and date
@@ -100,9 +80,14 @@ chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
 
+# For windows
+pacman -S ntfs-3g
+
 nano /etc/fstab
+
 # ADD:
 /swapfile none swap sw 0 0
+# Replace the line which mounts windows with "ntfs" with "ntfs-3g"
 ```
 
 ### Initial setup
@@ -124,6 +109,9 @@ nano /etc/hosts
 nano /etc/mkinitcpio.conf
 # Make the line with HOOKS as below
 HOOKS=(base udev autodetect keyboard modconf block encrypt filesystems fsck)
+
+# IT WONT BE LIKE THIS IN THE NEW UPDATE - Just add encrypt before filsystems
+
 # Save and exit nano
 mkinitcpio -p linux
 ```
@@ -170,7 +158,6 @@ fi
 ##########################
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB 
-grub-mkconfig -o /boot/grub/grub.cfg 
 ```
 
 ### Exit and reboot
